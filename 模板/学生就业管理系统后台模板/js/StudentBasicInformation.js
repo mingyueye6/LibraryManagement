@@ -298,7 +298,7 @@ function getEchartsMap() {			//工作省份地图
 				coordinateSystem: 'geo',
 				data: convertData(data),
 				symbolSize: 15,
-				symbol: 'image://images/pin_2.svg',
+				symbol: 'images://images/pin_2.svg',
 				symbolRotate: 0,
 				itemStyle: {
 					normal: {

@@ -125,7 +125,7 @@
 				time : "",	// 默认显示时间
 				
 				// 头像上传属性
-				imgDivId : "image-box", // 本地上传的图片区域id
+				imgDivId : "images-box", // 本地上传的图片区域id
 				cutBox : "cut-box",		// 裁剪区域id
 				moveBox : "move-box",	// 背景区域id，可拖动
 				dataUrl : "data-url",	// 最终将图片地址返回给哪个input存储
@@ -137,7 +137,7 @@
 				dataOriginal : "data-original",	// 图片延迟加载时，从该属性中获取真正的图片地址
 				appear : null,
 				load : null,
-				placeholder : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC",
+				placeholder : "data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC",
 				
 				// 文件上传属性
 				isShowOptTip : false,// 是否显示操作提示
@@ -147,7 +147,7 @@
 				maxSize : "",		// 单张图片的大小上限，单位KB，0或空为不限制
 				imgUrl : "",		// 图片回显地址
 				dataType : "base64",	// 图片上传后的返回类型
-				addImg : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAIBJREFUSA3tl7ENwCAMBN9RpkvFQsyUNGE9IpIs8P8FBUZy58PmkLAAxFXqdY8QcewqCPRDZ4HNgR02Czv2KDZVU7qc5FTt2KPY9VTHN2G8B59y/CZHm6I6Ap1v9idKPfsIdYMpJx7NZmH1ymguVdPKVCBVq+Zobj3Vxt8pmjNlHkcEEcpxsEklAAAAAElFTkSuQmCC",
+				addImg : "data:images/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAIBJREFUSA3tl7ENwCAMBN9RpkvFQsyUNGE9IpIs8P8FBUZy58PmkLAAxFXqdY8QcewqCPRDZ4HNgR02Czv2KDZVU7qc5FTt2KPY9VTHN2G8B59y/CZHm6I6Ap1v9idKPfsIdYMpJx7NZmH1ymguVdPKVCBVq+Zobj3Vxt8pmjNlHkcEEcpxsEklAAAAAElFTkSuQmCC",
 
 				// 评论
 				commentCount : 0,	// 评论条数
@@ -1990,17 +1990,17 @@
 					
 					dialogHtml = '<div class="ex-allcover"></div>';
 					dialogHtml += '<div id="'+UUID+'" class="ex-area-window">';
-					dialogHtml += '<div id="ex-box-image-manga" style="width:'+width+'px;height:'+height+'px;left:'+(maxWidth-width+120)/2+'px;top:'+(maxHeight-height+120)/2+'px;">';
+					dialogHtml += '<div id="ex-box-images-manga" style="width:'+width+'px;height:'+height+'px;left:'+(maxWidth-width+120)/2+'px;top:'+(maxHeight-height+120)/2+'px;">';
 					dialogHtml += '<img id="img-'+UUID+'" src="'+settings.url+'" style="opacity: 1;">';
 					dialogHtml += '</div>';
-					dialogHtml += '<div class="prev-image" title="上一张" onclick="javaex.lastImg(\''+UUID+'\', \''+selector+'\', \''+placeholder+'\', \''+original+'\');">';
+					dialogHtml += '<div class="prev-images" title="上一张" onclick="javaex.lastImg(\''+UUID+'\', \''+selector+'\', \''+placeholder+'\', \''+original+'\');">';
 					dialogHtml += '<i class="icon icon-chevron-circle-left"></i>';
 					dialogHtml += '</div>';
-					dialogHtml += '<div class="next-image" title="下一张" onclick="javaex.nextImg(\''+UUID+'\', \''+selector+'\', \''+placeholder+'\', \''+original+'\');">';
+					dialogHtml += '<div class="next-images" title="下一张" onclick="javaex.nextImg(\''+UUID+'\', \''+selector+'\', \''+placeholder+'\', \''+original+'\');">';
 					dialogHtml += '<i class="icon icon-chevron-circle-right"></i>';
 					dialogHtml += '</div>';
-					dialogHtml += '<div class="area-tool-image">';
-					dialogHtml += '<a id="ex-btn-quit-image" class="button red" href="javascript:;" onclick="javaex.close(\''+UUID+'\');">';
+					dialogHtml += '<div class="area-tool-images">';
+					dialogHtml += '<a id="ex-btn-quit-images" class="button red" href="javascript:;" onclick="javaex.close(\''+UUID+'\');">';
 					dialogHtml += '<i class="icon icon-cancel" style="vertical-align: middle;height: 30px;line-height: 28px;font-size: 16px;"></i>退出读图模式';
 					dialogHtml += '</a>';
 					dialogHtml += '</div>';
@@ -2112,7 +2112,7 @@
 						var arr = info.autoWidthHeight(image.width, image.height, maxWidth, maxHeight);
 						width = arr[0];
 						height = arr[1];
-						$("#ex-box-image-manga").css({
+						$("#ex-box-images-manga").css({
 							"width" : width + "px",
 							"height" : height + "px",
 							"left" : (maxWidth-width+120)/2 + "px",
@@ -2156,7 +2156,7 @@
 						var arr = info.autoWidthHeight(image.width, image.height, maxWidth, maxHeight);
 						width = arr[0];
 						height = arr[1];
-						$("#ex-box-image-manga").css({
+						$("#ex-box-images-manga").css({
 							"width" : width + "px",
 							"height" : height + "px",
 							"left" : (maxWidth-width+120)/2 + "px",
@@ -5494,7 +5494,7 @@
 				var context = canvas.getContext("2d");
 				context.drawImage(info.image, 0, 0, swidth, sheight, x, y, width, height);
 				// 用canvas的toDataURL()将图片转为dataURL(base64)
-				var avatarPreviewImageSrc = canvas.toDataURL('image/png');
+				var avatarPreviewImageSrc = canvas.toDataURL('images/png');
 
 				// 填充预览头像
 				$(".avatar180").html('');
@@ -5564,7 +5564,7 @@
 				editHtml += '<span class="separator-line"></span>';
 				// 上传图片
 				editHtml += '<a class="edit-btn" tip="本地图片"><div class="icon icon-photo"><label for="'+UUID+'" style="display: inline-block; width:100%;height:100%;position: absolute;top: 0;left: 0;"></label></div>';
-				editHtml += '<input type="file" style="display:none;" id="'+UUID+'" accept="image/gif, image/jpeg, image/jpg, image/png" /></a>';
+				editHtml += '<input type="file" style="display:none;" id="'+UUID+'" accept="images/gif, images/jpeg, images/jpg, images/png" /></a>';
 				// 外链音乐
 				editHtml += '<a class="edit-btn edit-btn-music" tip="外链音乐"><div class="icon icon-audiotrack"></div></a>';
 				// 外链视频
